@@ -1,7 +1,7 @@
 # boilerplate
 
 ```javascript
-npm istall
+npm install
 gulp build
 gulp
 ```
