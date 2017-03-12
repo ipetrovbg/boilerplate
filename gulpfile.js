@@ -14,9 +14,12 @@ uglify = require('gulp-uglify'),
 // nodejs module for starting and restarting server
 nodemon = require('gulp-nodemon');
 
-gulp.task('build', function () {
-  return gulp.src('node_modules/**/*')
-    .pipe(gulp.dest('public/lib'));
+gulp.task('build', function(){
+
+  // copying node_modules to public lib
+    gulp.src('node_modules/**/*')
+      .pipe(gulp.dest('public/lib'));
+
 });
 
 gulp.task('server', function () {
@@ -27,7 +30,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('default', function () {
-  
+
   // starting server
   gulp.run('server');
 
