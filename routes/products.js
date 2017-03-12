@@ -8,26 +8,16 @@ const Users		= require("../models/Users.js")(sequelize, Sequelize);
 function ProductsController(){
 	// get all products
 	this.index = function (req, res){
-		sequelize.sync().then(function() { 
-		  return Products.findAll({ include: Users }).then(function (products) {
-			    return products;
-			});
-		}).then(function(products) {
-		 	res.status(200).json(products);
-		});
+
+		res.status(200).json("All Products");
+		
 	}
 
 	this.getById = function(req, res){
 
 		const id = req.params.id;
-		sequelize.sync().then(function() {
-		  return Products.findById(id,{ include: Users }).then(function (product) {
-			    return product; 
-			});
-		}).then(function(product) {
-			if(!product) res.status(200).json({error: true, message: "Product not found"});
-		 	res.status(404).json(product);
-		});
+		res.status(200).send("Product ID: " + id);
+
 	}
 }
 
