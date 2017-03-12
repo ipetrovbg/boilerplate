@@ -14,7 +14,7 @@ uglify = require('gulp-uglify'),
 // nodejs module for starting and restarting server
 nodemon = require('gulp-nodemon');
 
-gulp.task('libs', function () {
+gulp.task('build', function () {
   return gulp.src('node_modules/**/*')
     .pipe(gulp.dest('public/lib'));
 });
@@ -27,14 +27,20 @@ gulp.task('server', function () {
 });
 
 gulp.task('default', function () {
+  
+  // starting server
   gulp.run('server');
-  gulp.run('libs');
+
+  // watch task
   gulp.task('watch', function () {
-    gulp.run('server');
+
+    //watching for changes in all files in routes directory and app.js
     gulp.watch(["routes/*.js", "app.js"], function(event){
         gulp.run('server');
     });
+
   });
+
 });
 
 

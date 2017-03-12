@@ -13,7 +13,7 @@ server.use('/public', express.static(__dirname + '/public'));
 const routes = {
 	Users: require('./routes/users.js'),
 	Products: require('./routes/products.js')
-}
+} 
 
 /* users routes */
 server.use('/api/v1/users', routes.Users);
