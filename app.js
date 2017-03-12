@@ -1,10 +1,7 @@
-const express 		= require('express')
-const Sequelize 	= require('sequelize');
+const express 		= require('express');
 
 const server 		= express();
 const port 			= 8000;
-
-const sequelize 	= new Sequelize('nutrisys', 'root', '');
 
 /* static files */
 server.use('/public', express.static(__dirname + '/public'));
